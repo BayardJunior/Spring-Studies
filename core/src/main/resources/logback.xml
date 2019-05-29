@@ -6,6 +6,7 @@
     </appender>
 
     <logger name="brincando.spring5" level="DEBUG"/>
+    <logger name="org.springframework" level="DEBUG"/>
     <root>
         <appender-ref ref="STDOUT"/>
     </root>
