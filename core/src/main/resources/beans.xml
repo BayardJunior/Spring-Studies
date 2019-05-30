@@ -6,4 +6,8 @@
 
     <bean id="numberGenerator" class="brincando.spring5.NumberGeneratorImpl"/>
 
+    <bean id="game" class="brincando.spring5.GameImpl">
+        <constructor-arg ref="numberGenerator"/>
+    </bean>
+
 </beans>

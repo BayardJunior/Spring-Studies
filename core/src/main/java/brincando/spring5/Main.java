@@ -15,17 +15,22 @@ public class Main {
         LOGGER.info("Guess the number");
 
         //create context (container)
-
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(CONFIG_LOCATION);
 
+        //get number generated bean from context (container)
         NumberGenerator numberGenerator = context.getBean("numberGenerator", NumberGenerator.class);
 
         //call method next to get a random number
-
         int number = numberGenerator.next();
 
         //log generated number
         LOGGER.info("numer = {}", number);
+
+        //get game bean from context (container)
+        Game game = context.getBean(Game.class);
+
+        //call reset method
+        game.reset();
 
         //close context (container)
         context.close();
