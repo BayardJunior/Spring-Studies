@@ -10,6 +10,7 @@ public class Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
     private static final String CONFIG_LOCATION = "beans.xml";
+
     public static void main(String[] args) {
 
         LOGGER.info("Guess the number");
@@ -28,9 +29,6 @@ public class Main {
 
         //get game bean from context (container)
         Game game = context.getBean(Game.class);
-
-        //call reset method
-        game.reset();
 
         //close context (container)
         context.close();

@@ -2,12 +2,18 @@ package brincando.spring5;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 
 public class GameImpl implements Game {
 
     private static final Logger log = LoggerFactory.getLogger(GameImpl.class);
 
+    @Autowired
     private NumberGenerator numberGenerator;
+
     private int guessCount = 10;
     private int number;
     private int guess;
@@ -15,10 +21,6 @@ public class GameImpl implements Game {
     private int biggest;
     private int remainingGuesses;
     private boolean validNumberRange = true;
-
-    public GameImpl(NumberGenerator numberGenerator) {
-        this.numberGenerator = numberGenerator;
-    }
 
     @Override
     public int getNumber() {
@@ -50,6 +52,8 @@ public class GameImpl implements Game {
         return remainingGuesses;
     }
 
+    // == INIT ==
+    @PostConstruct
     @Override
     public void reset() {
 
@@ -60,6 +64,11 @@ public class GameImpl implements Game {
         number = numberGenerator.next();
         log.debug("The number is {}", number);
 
+    }
+
+    @PreDestroy
+    public void preDestroy(){
+        log.info("in game preDestroy()");
     }
 
     @Override
