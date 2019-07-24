@@ -1,5 +1,9 @@
-package brincando.spring5;
+package brincando.spring5.console;
 
+import brincando.spring5.AppConfig;
+import brincando.spring5.Game;
+import brincando.spring5.MessageGenerator;
+import brincando.spring5.NumberGenerator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
