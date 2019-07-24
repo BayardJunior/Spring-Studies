@@ -13,22 +13,31 @@ public class Main {
 
         LOGGER.info("Guess the number");
 
-        //create context (container)
+        // create context (container)
         ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        //get number generated bean from context (container)
+        // get number generated bean from context (container)
         NumberGenerator numberGenerator = context.getBean(NumberGenerator.class);
 
-        //call method next to get a random number
+        // call method next to get a random number
         int number = numberGenerator.next();
 
-        //log generated number
+        // log generated number
         LOGGER.info("numer = {}", number);
 
-        //get game bean from context (container)
+        // get game bean from context (container)
         Game game = context.getBean(Game.class);
 
-        //close context (container)
+        // get message generated bean from context (Container)
+        MessageGenerator messageGenerator = context.getBean(MessageGenerator.class);
+
+        // log generated main message
+        LOGGER.info("Main Message = {}",messageGenerator.getMainMessage());
+
+        // log generated result message
+        LOGGER.info("Result Message = {}",messageGenerator.getResultMessage());
+
+        // close context (container)
         context.close();
     }
 }

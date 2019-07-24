@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = "brincando.spring5")
 public class AppConfig {
 
-    //== bean methods
+    //== bean methods ==
 
     @Bean
     public NumberGenerator numberGenerator(){
@@ -18,6 +18,11 @@ public class AppConfig {
     @Bean
     public Game game(){
         return new GameImpl();
+    }
+
+    @Bean
+    public MessageGenerator messageGenerator(){
+        return new MessageGeneratorImpl();
     }
 
 }
