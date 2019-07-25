@@ -16,7 +16,7 @@ public class GameImpl implements Game {
 
     @Autowired
     private int guessCount;
-    
+
     private int number;
     private int guess;
     private int smallest;
@@ -86,7 +86,7 @@ public class GameImpl implements Game {
             if (guess > number) {
                 biggest = guess - 1;
             } else {
-                smallest = biggest + 1;
+                smallest = guess + 1;
             }
         }
         remainingGuesses--;
