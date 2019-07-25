@@ -14,7 +14,9 @@ public class GameImpl implements Game {
     @Autowired
     private NumberGenerator numberGenerator;
 
-    private int guessCount = 10;
+    @Autowired
+    private int guessCount;
+    
     private int number;
     private int guess;
     private int smallest;
@@ -52,13 +54,18 @@ public class GameImpl implements Game {
         return remainingGuesses;
     }
 
+    @Override
+    public int getGuessCount() {
+        return guessCount;
+    }
+
     // == INIT ==
     @PostConstruct
     @Override
     public void reset() {
 
         smallest = 0;
-        guess=0;
+        guess = 0;
         remainingGuesses = guessCount;
         biggest = numberGenerator.getMaxNumber();
         number = numberGenerator.next();
