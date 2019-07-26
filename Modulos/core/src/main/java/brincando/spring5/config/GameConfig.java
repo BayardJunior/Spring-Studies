@@ -1,5 +1,7 @@
 package brincando.spring5.config;
 
+import brincando.spring5.GuessCount;
+import brincando.spring5.MaxNumber;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,11 +17,13 @@ public class GameConfig {
     // == beans methods ==
 
     @Bean
+    @MaxNumber
     public int maxNumber(){
         return maxNumber;
     }
 
     @Bean
+    @GuessCount
     public int guessCount(){
         return guessCount;
     }
