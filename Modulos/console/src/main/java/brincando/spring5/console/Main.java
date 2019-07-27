@@ -1,6 +1,6 @@
 package brincando.spring5.console;
 
-import brincando.spring5.config.AppConfig;
+import brincando.spring5.config.GameConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -15,7 +15,7 @@ public class Main {
         LOGGER.info("Guess the number");
 
         // create context (container)
-        ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(GameConfig.class);
 
         // close context (container)
         context.close();
