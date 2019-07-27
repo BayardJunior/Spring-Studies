@@ -13,6 +13,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 //Its used to annotate athoer custom annotations that can be used by qualifier
 @Qualifier
-public @interface GuessCount {
+public @interface MinNumber {
 
 }

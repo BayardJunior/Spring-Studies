@@ -2,6 +2,7 @@ package brincando.spring5.config;
 
 import brincando.spring5.GuessCount;
 import brincando.spring5.MaxNumber;
+import brincando.spring5.MinNumber;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +22,9 @@ public class GameConfig {
     @Value("${game.guessNumber:5}")
     private int guessCount;
 
+    @Value("${game.minNumber:5}")
+    private int minNumber;
+
     // == beans methods ==
 
     @Bean
@@ -33,6 +37,12 @@ public class GameConfig {
     @GuessCount
     public int guessCount(){
         return guessCount;
+    }
+
+    @Bean
+    @MinNumber
+    public int minNumber(){
+        return minNumber;
     }
 
 }
