@@ -1,16 +1,13 @@
 package brincando.spring5;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
+@Slf4j
 @Component
 public class MessageGeneratorImpl implements MessageGenerator {
-
-    // == constants ==
-    private static final Logger LOGGER = LoggerFactory.getLogger(MessageGeneratorImpl.class);
 
     //== Dependency inject ==
     private final Game game;
@@ -23,7 +20,7 @@ public class MessageGeneratorImpl implements MessageGenerator {
     @PostConstruct
     public void initMessageImpl(){
 
-        LOGGER.info("game -> {}", game);
+        log.info("game -> {}", game);
     }
 
     // == Public methods ==
