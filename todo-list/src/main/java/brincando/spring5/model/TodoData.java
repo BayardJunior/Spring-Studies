@@ -21,9 +21,9 @@ public class TodoData {
         addItem(new TodoItem("First", "First Details", LocalDate.now()));
         addItem(new TodoItem("Second", "Second Details", LocalDate.now()));
         addItem(new TodoItem("Third", "Third Details", LocalDate.now()));
-        addItem(new TodoItem("Four", "Four Details", LocalDate.now()));
+        addItem(new TodoItem("Fourth", "Fourth Details", LocalDate.now()));
+        addItem(new TodoItem("Fifth", "Fifht Details", LocalDate.now()));
     }
-
 
     public List<TodoItem> getItems(){
         return Collections.unmodifiableList(items);
