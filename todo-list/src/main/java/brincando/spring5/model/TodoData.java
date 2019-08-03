@@ -69,8 +69,20 @@ public class TodoData {
 
     public void updateItem(@NonNull TodoItem todoItemUpdate){
 
+     /* java.util.ConcurrentModificationException
+        Isso ocorre pois o Iterator utilizado internamente nesse laço vai detectar
+        , na próxima chamada ao seu método next(), que o número de modificações
+        desta ArrayList é diferente de quando ele foi instanciado.
+
         items.stream().filter(
                 todoItem -> todoItem.getId() == todoItemUpdate.getId())
-                .forEach(todoItem -> items.add(items.indexOf(todoItem), todoItemUpdate));
+                .forEach(todoItem -> items.set(items.indexOf(todoItem), todoItemUpdate));
+     */
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).getId() == todoItemUpdate.getId()) {
+                items.set(i, todoItemUpdate);
+                break;
+            }
+        }
     }
 }
