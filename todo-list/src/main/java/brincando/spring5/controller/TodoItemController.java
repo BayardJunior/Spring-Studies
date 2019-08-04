@@ -10,7 +10,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 
@@ -72,5 +75,17 @@ public class TodoItemController {
         log.info("deleteItem() id = {}", id);
         todoItemService.removeItem(id);
         return "redirect:/" + Mappings.ITEMS;
+    }
+
+    @GetMapping(Mappings.VIEW_ITEM)
+    public String viewItem(@RequestParam int id, Model model){
+        log.info("View id = {}", id);
+
+        TodoItem item = todoItemService.getItem(id);
+
+        model.addAttribute(AttributeNames.TODO_ITEM, item);
+
+        return ViewNames.VIEW_ITEM;
+
     }
 }
