@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="~{fragments/head :: headFragment}">
     <meta charset="UTF-8">
-    <title>Guess the Number Game</title>
+    <title>Game Finished</title>
 </head>
 <body>
 <div align="center">
@@ -14,11 +14,15 @@
     <h3 th:text="${__${T(brincando.spring5.util.AttributesNames).RESULT_MESSAGE}__}">
         Result Message
     </h3>
-    <a th:href="@{__${T(brincando.spring5.util.GameMappings).RESTART}__}">Play Again</a>
+    <a th:href="@{__${T(brincando.spring5.util.GameMappings).RESTART}__}">
+        Play Again
+    </a>
 
     <p/>
 
-    <a th:href="@{__${T(brincando.spring5.util.GameMappings).HOME}__}">Home</a>
+    <a th:href="@{__${T(brincando.spring5.util.GameMappings).HOME}__}">
+        Home
+    </a>
 
     <footer>
         <p>Created by Bayard Junior</p>
