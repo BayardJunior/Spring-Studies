@@ -1,0 +1,9 @@
+<thlogic>
+
+    <attr sel="#headId" th:replace="~{fragments/head :: headFragment}"/>
+    <attr sel="#main-message" th:text="${__${T(brincando.spring5.util.AttributesNames).MAIN_MESSAGE}__}"/>
+    <attr sel="#result-message" th:text="${__${T(brincando.spring5.util.AttributesNames).RESULT_MESSAGE}__}"/>
+    <attr sel="#game-form" th:action="@{__${T(brincando.spring5.util.GameMappings).PLAY}__}"/>
+    <attr sel="#footerId" th:replace="~{fragments/footer :: footFragment}"/>
+
+</thlogic>

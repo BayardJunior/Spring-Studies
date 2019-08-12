@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/head :: headFragment}">
+<html lang="en">
+<head id="headId">
     <meta charset="UTF-8">
     <title>Game</title>
 </head>
@@ -9,15 +9,15 @@
 
     <h1>Guess the Number Game</h1>
 
-    <h3 th:text="${__${T(brincando.spring5.util.AttributesNames).MAIN_MESSAGE}__}">
+    <h3 id="main-message">
         Main Message Content
     </h3>
 
-    <h3 th:text="${__${T(brincando.spring5.util.AttributesNames).RESULT_MESSAGE}__}">
+    <h3 id="result-message">
         Result Message Content
     </h3>
 
-    <form th:action="@{__${T(brincando.spring5.util.GameMappings).PLAY}__}"
+    <form id="game-form"
           action="play"
           method="post">
         <label for="guess">Enter your guess</label>
@@ -26,7 +26,7 @@
 
     </form>
 
-    <footer th:replace="~{fragments/footer :: footFragment}">
+    <footer id="footerId">
         <p>Junior</p>
     </footer>
 
