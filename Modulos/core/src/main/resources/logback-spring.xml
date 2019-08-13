@@ -3,4 +3,6 @@
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <logger name="brincando.spring5" level="DEBUG"/>
     <logger name="org.springframework" level="INFO"/>
+    <logger name="org.thymeleaf" level="INFO"/>
+
 </configuration>

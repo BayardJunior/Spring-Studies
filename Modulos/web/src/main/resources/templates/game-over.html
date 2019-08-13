@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/head :: headFragment}">
+<html lang="en">
+<head id="headId">
     <meta charset="UTF-8">
     <title>Game Finished</title>
 </head>
@@ -11,20 +11,20 @@
 
     <h2>Game Over</h2>
 
-    <h3 th:text="${__${T(brincando.spring5.util.AttributesNames).RESULT_MESSAGE}__}">
+    <h3 id="result-message">
         Result Message
     </h3>
-    <a th:href="@{__${T(brincando.spring5.util.GameMappings).RESTART}__}">
+    <a id="restart">
         Play Again
     </a>
 
     <p/>
 
-    <a th:href="@{__${T(brincando.spring5.util.GameMappings).HOME}__}">
+    <a id="homeId">
         Home
     </a>
 
-    <footer th:replace="~{fragments/footer :: footFragment}">
+    <footer id="footerId">
         <p>Game-Over</p>
     </footer>
 </div>

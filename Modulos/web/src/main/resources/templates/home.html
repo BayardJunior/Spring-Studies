@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/head :: headFragment}">
+<html lang="en">
+<head id="headId">
     <meta charset="UTF-8">
     <title>Title content</title>
 </head>
@@ -11,15 +11,14 @@
 
     <h3>
 
-        <a th:href="@{__${T(brincando.spring5.util.GameMappings).PLAY}__}"
-           th:text= "Play"
+        <a id="redirect-play"
            href="play.html">
             Click to play
         </a>
 
     </h3>
 
-    <footer th:replace="~{fragments/footer :: footFragment}">
+    <footer id="footerId">
         <p>Home</p>
     </footer>
 
