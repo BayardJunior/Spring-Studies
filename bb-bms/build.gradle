@@ -1,12 +1,12 @@
-plugins {
-	id 'org.springframework.boot' version '2.1.7.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.7.RELEASE'
-	id 'java'
-}
-
+/*
 group = 'brincando.spring5'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+*/
+
+allprojects {
+	group = 'brincando.spring5.bbbms'
+	version = '1.0.0-SNAPSHOT'
+}
 
 configurations {
 	developmentOnly
@@ -18,15 +18,27 @@ configurations {
 	}
 }
 
-repositories {
-	mavenCentral()
-}
+subprojects {
 
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	apply plugin:'java'
+	apply plugin:'eclipse'
+	apply plugin:'io.spring.dependency-management'
+
+	sourceCompatibility = '11'
+
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+
+		annotationProcessor("org.projectlombok:lombok")
+		compileOnly 'org.projectlombok:lombok'
+	}
+
+	dependencyManagement{
+		imports{
+			mavenBom("org.springframework.boot:spring-boot-dependecies:${springBootVersion}")
+		}
+	}
 }
