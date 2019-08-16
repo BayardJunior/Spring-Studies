@@ -1,44 +1,39 @@
-/*
-group = 'brincando.spring5'
-version = '0.0.1-SNAPSHOT'
-*/
+buildscript {
+	ext {
+		springBootVersion = '2.1.1.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
 
 allprojects {
 	group = 'brincando.spring5.bbbms'
 	version = '1.0.0-SNAPSHOT'
 }
 
-configurations {
-	developmentOnly
-	runtimeClasspath {
-		extendsFrom developmentOnly
-	}
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-}
-
 subprojects {
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
+	apply plugin: 'io.spring.dependency-management'
 
-	apply plugin:'java'
-	apply plugin:'eclipse'
-	apply plugin:'io.spring.dependency-management'
-
-	sourceCompatibility = '11'
+	sourceCompatibility = 11
 
 	repositories {
 		mavenCentral()
 	}
 
 	dependencies {
-
 		annotationProcessor("org.projectlombok:lombok")
-		compileOnly 'org.projectlombok:lombok'
+		compileOnly('org.projectlombok:lombok')
 	}
 
-	dependencyManagement{
-		imports{
-			mavenBom("org.springframework.boot:spring-boot-dependecies:${springBootVersion}")
+	dependencyManagement {
+		imports {
+			mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
 		}
 	}
 }
